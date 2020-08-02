@@ -1,0 +1,96 @@
+body{
+    margin: 0;
+    color: cornsilk;
+}
+
+.container {
+    display: grid;
+    grid-template-columns: 25% 15% 20% 20% 20%;
+    grid-template-rows: 20% 20% 20% 20% 20%;
+}
+
+.containChannel {
+    height: 100vh;
+    background-color:#19171d;
+    grid-column: 1 / 2; 
+    border-right:1px solid #6d6c6c; 
+}
+
+.chatSpace{
+    height: 100vh;
+    background-color:#1a1d21;
+    grid-column: 2 / 6;
+    padding-left: 20px;
+    display: flex;
+    flex-direction: column ;
+}
+
+.message{
+    display: flex;
+    margin-top: 20px;
+}
+
+.messageInfo {    
+    margin-left:10px;
+    height: 50px;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+}
+
+.profilephoto{
+    border: 1px solid #747779;
+    width: 50px;
+    height: 50px;
+    border-radius: 25px;
+}
+
+.interaction{
+    display: flex;
+    margin: 0;
+    height: 25px; 
+}
+
+.nickname {
+    display: inline;
+    margin: 0px 0px;
+}
+
+.time{
+    padding-top:3px;
+    padding-left: 10px;
+}
+
+.messageText{
+    height: 25px;
+    margin: 0;
+}
+                    
+input{
+    border: none;
+    background-color: #222529;
+    color: #656769;
+    width: 100vh;
+    height: 35px;
+    outline:0px;
+}
+button{
+    border: none;
+    background-color: #222529;
+    width: 10px;
+    height: 35px;
+    outline:0px;
+}
+
+
+.textBox{
+    width:110vh ;
+    height: 40px;
+    position: fixed;
+    bottom: 20px;
+    border: 1px solid #747779;
+    background-color:#222529;
+    border-radius: 5px;
+    color: #656769;
+}   
