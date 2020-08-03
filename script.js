@@ -16,5 +16,9 @@ $('.chatSpace').append('<div class="message">'+
 
 $('input').val('');
 
+$('html, body').animate({
+    scrollTop: $("input").offset().top
+    }, 1000);
+
 })
 
