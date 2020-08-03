@@ -57,7 +57,7 @@ li:hover{
     min-height: 90vh;
     background-color:#1a1d21;
     grid-column: 2 / 6;
-    grid-row: 1/6;
+    grid-row: 1 / 6;
     padding: 10px 20px 80px 40px;
     display: flex;
     flex-direction: column ;
@@ -74,7 +74,6 @@ li:hover{
     display: flex;
     flex-direction: column;
     justify-content: space-around;
-    flex-wrap: wrap;  
 }
 
 .profilephoto{
@@ -104,9 +103,13 @@ li:hover{
 }
 
 .messageText{
+    width: 68vw;
     margin: 0;
     font-size: 16px;
     font-weight: 400;
+    padding-right: 20px;
+    display: block;
+    word-wrap: break-word;
 }
                     
 input{
