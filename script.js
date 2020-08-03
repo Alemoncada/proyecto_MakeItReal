@@ -20,5 +20,13 @@ $('html, body').animate({
     scrollTop: $("input").offset().top
     }, 1000);
 
+});
+
+$('a').on('click', function(e) {
+    e.preventDefault();
+$('a').removeClass('active');
+$(this).addClass('active');
+
 })
+
 
