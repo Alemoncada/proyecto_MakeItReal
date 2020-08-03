@@ -2,7 +2,7 @@ $('form').on('submit', function(e) {
     e.preventDefault();
 let dt = new Date();
 let time = dt.getHours() + ":" + dt.getMinutes()
-$('.chatSpace').append('<div class="message">'+                                               
+$('.messagesContainer').append('<div class="message">'+                                               
 '<img src="images/people.jpg" class="profilephoto" alt="profilephoto">'+
 
 '<div class="messageInfo">'+
@@ -22,9 +22,9 @@ $('html, body').animate({
 
 });
 
-$('a').on('click', function(e) {
+$('li').on('click', function(e) {
     e.preventDefault();
-$('a').removeClass('active');
+$('li').removeClass('active');
 $(this).addClass('active');
 
 })

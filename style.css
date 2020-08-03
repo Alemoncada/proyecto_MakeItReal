@@ -46,8 +46,7 @@ body{
     background-color: rgb(17, 100, 163);
 }
 
-a.active li {
-    background-color: rgb(17, 100, 163);
+li.active a{
     color:white; 
 }
 
@@ -56,9 +55,10 @@ a{
     color: #757477;
     font-size: 16px;
     font-weight: 700;
+    display: block;
 }
 
-a:hover{
+li:hover{
     background-color: rgba(17, 100, 163, 0.2);
     color:#bbb7ac  ;
 }
