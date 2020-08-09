@@ -1,32 +1,78 @@
+const messages = [];
+
+
 $('form').on('submit', function(e) {
-    e.preventDefault();
-let dt = new Date();
-let time = dt.getHours() + ":" + dt.getMinutes()
-$('.messagesContainer').append('<div class="message">'+                                               
-'<img src="images/people.jpg" class="profilephoto" alt="profilephoto">'+
+     e.preventDefault();
 
-'<div class="messageInfo">'+
-    '<div class="interaction">'+                       
-        '<h3 class="nickname">Pepito Perez</h3>'+
-        '<span class="time">'+ time + '</span>'+
-   '</div>' +                                    
-    '<p class="messageText">'+$('input').val() +'</p>'+                                            
-'</div>'+
-'</div>');
+    let value = $('input').val();
 
-$('input').val('');
+    if(value !== $('input').val('')) {
+        let dt = new Date();
+        let time = dt.getHours() + ":" + dt.getMinutes();
+        const message = {
+            time: time,
+            content: value,
+            author: {
+                nickname:"Alexis",
+                photo:"images/people.jpg",
+            },
+        };
+        printMessage (message);
+        messages.push(message);
+        console.log(messages)
+                
+        $('input').val('');
+        $('html, body').animate( {
+        scrollTop: $("input").offset().top
+        }, 10);
+    }
+});
+ 
 
-$('html, body').animate({
-    scrollTop: $("input").offset().top
-    }, 1000);
+function printMessage ({author, time, content}) {
 
+const template = `<div class="message">
+<img src="${author.photo}" class="profilephoto" alt="profilephoto">
+<div class="messageInfo">
+    <div class="interaction">
+        <span class="nickname">${author.nickname}</span>
+        <span class="time">${time}</span>
+    </div>
+    <p class="messageText">${content}</p>
+</div>
+</div>`;
+
+$('.messagesContainer').append(template);
+
+};
+
+messages.forEach (message => {
+    printmessage(message)
 });
 
+//canales
+
 $('li').on('click', function(e) {
-    e.preventDefault();
-$('li').removeClass('active');
-$(this).addClass('active');
+ $('li').removeClass('active');
+ $(this).addClass('active');
 
 })
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
