@@ -1,4 +1,24 @@
-const messages = [];
+const channels = [
+    {
+      messages : [],
+      name: "# Canal 1"  
+    },
+    {
+        messages : [],
+        name: "# Canal 2"    
+    },
+    {
+        messages : [],
+        name: "# Canal 3"    
+    }
+
+];
+
+
+
+let active = $('.active').text();
+
+let channel = channels.find((channel)=> channel.name === active);
 
 
 $('form').on('submit', function(e) {
@@ -18,16 +38,18 @@ $('form').on('submit', function(e) {
             },
         };
         printMessage (message);
-        messages.push(message);
-        console.log(messages)
-                
+        channel.messages.push(message);
+                        
         $('input').val('');
         $('html, body').animate( {
         scrollTop: $("input").offset().top
         }, 10);
     }
 });
- 
+
+channel.messages.forEach (message => {
+    printMessage(message)
+}); 
 
 function printMessage ({author, time, content}) {
 
@@ -46,17 +68,24 @@ $('.messagesContainer').append(template);
 
 };
 
-messages.forEach (message => {
-    printmessage(message)
-});
+
 
 //canales
 
 $('li').on('click', function(e) {
- $('li').removeClass('active');
- $(this).addClass('active');
+  $('li').removeClass('active');
+  $(this).addClass('active');
+  $('.messagesContainer').empty();
+  active = $('.active').text();
+  channel = channels.find((channel)=> channel.name === active);
+  channel.messages.forEach (message => {
+     printMessage(message)
+  
+ }); 
 
-})
+});
+
+
 
 
 
