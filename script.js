@@ -26,7 +26,7 @@ $('form').on('submit', function(e) {
 
     let value = $('input').val();
 
-    if(value !== $('input').val('')) {
+    if(value !== '') {
         let dt = new Date();
         let time = dt.getHours() + ":" + dt.getMinutes();
         const message = {
@@ -79,10 +79,13 @@ $('li').on('click', function(e) {
   active = $('.active').text();
   channel = channels.find((channel)=> channel.name === active);
   channel.messages.forEach (message => {
-     printMessage(message)
-  
- }); 
+    printMessage(message)
+   }); 
 
+ $('input').val('');
+    $('html, body').animate( {
+    scrollTop: $("input").offset().top
+    }, 1);
 });
 
 
