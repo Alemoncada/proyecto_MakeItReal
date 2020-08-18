@@ -21,10 +21,10 @@ let active = $('.active').text();
 let channel = channels.find((channel)=> channel.name === active);
 
 
-$('form').on('submit', function(e) {
+$('.textBox').on('submit', function(e) {
      e.preventDefault();
 
-    let value = $('input').val();
+    let value = $('.input').val();
 
     if(value !== '') {
         let dt = new Date();
@@ -40,9 +40,9 @@ $('form').on('submit', function(e) {
         printMessage (message);
         channel.messages.push(message);
                         
-        $('input').val('');
+        $('.input').val('');
         $('html, body').animate( {
-        scrollTop: $("input").offset().top
+        scrollTop: $(".input").offset().top
         }, 10);
     }
 });
@@ -72,6 +72,35 @@ $('.messagesContainer').append(template);
 
 //canales
 
+
+
+$('.addChannel').on('submit', function(e) {
+    e.preventDefault();
+    const templateChannel = '<li class="channel"><a href="#">'+  $('.inputChannel').val() +'</a></li>';
+    $('.channelList').append(templateChannel);
+    
+    
+$('li').on('click', function(e) {
+    $('li').removeClass('active');
+    $(this).addClass('active');      
+    channels.push( {
+        messages : [],
+        name: $('.inputChannel').val()    
+    });
+    $('.inputChannel').val('');
+    $('.messagesContainer').empty();
+    active = $('.active').text();
+    channel = channels.find((channel)=> channel.name === active);
+    channel.messages.forEach (message => {
+      printMessage(message)
+     }); 
+     
+})
+
+
+});
+
+
 $('li').on('click', function(e) {
   $('li').removeClass('active');
   $(this).addClass('active');
@@ -82,12 +111,12 @@ $('li').on('click', function(e) {
     printMessage(message)
    }); 
 
- $('input').val('');
+ $('.input').val('');
     $('html, body').animate( {
-    scrollTop: $("input").offset().top
+    scrollTop: $(".input").offset().top
     }, 1);
+    console.log(this);
 });
-
 
 
 
