@@ -28,7 +28,10 @@ $('.textBox').on('submit', function(e) {
 
     if(value !== '') {
         let dt = new Date();
-        let time = dt.getHours() + ":" + dt.getMinutes();
+        let hours = dt.getHours();
+        let minutes =  dt.getMinutes();
+        let time = hours + ":" + minutes;
+        
         const message = {
             time: time,
             content: value,
@@ -37,6 +40,8 @@ $('.textBox').on('submit', function(e) {
                 photo:"images/people.jpg",
             },
         };
+        
+
         printMessage (message);
         channel.messages.push(message);
                         
@@ -68,6 +73,29 @@ $('.messagesContainer').append(template);
 
 };
 
+$.get("https://jsonplaceholder.typicode.com/comments").then((response) => {
+    response.forEach((result) => {
+        let dt = new Date();
+        let hours = dt.getHours();
+        let minutes =  dt.getMinutes();
+        let time = hours + ":" + minutes;
+        
+        const message = {
+            time: time,
+            content: result.body,
+            author: {
+                nickname:result.name,
+                photo:"http://lorempixel.com/50/50/sports/",
+            },
+        };
+  
+      channel.messages.push(message);
+    });
+    
+    printMessages();
+    $("html, body").animate({ scrollTop: $(document).height()-$(window).height() });
+ 
+  }); 
 
 
 //canales
@@ -111,16 +139,8 @@ $('li').on('click', function(e) {
     printMessage(message)
    }); 
 
- $('.input').val('');
-    $('html, body').animate( {
-    scrollTop: $(".input").offset().top
-    }, 1);
-    console.log(this);
+   $("html, body").animate({ scrollTop: $(document).height()-$(window).height() });
 });
-
-
-
-
 
 
 

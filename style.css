@@ -19,6 +19,7 @@ body {
     border-right:1px solid #6d6c6c; 
     color: #757477;
     overflow-y: scroll;
+    overflow-x: hidden;
 }
 
 .channelTitle {
